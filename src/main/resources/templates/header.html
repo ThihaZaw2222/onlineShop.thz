@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+<body>
+	<div th:fragment="client_header">
+		<div class="container">
+			<div>
+			<img style="background:white;" class="img-responsive" th:src="@{/image/header.jpg}" >
+			<h2 style="background-color: blue;">WELCOME TO MY ONLINE SHOPPING WEB SITE</h2>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					
+					<ul class="nav navbar-nav">
+					
+						<li class="active"><a th:href="@{/Category/}">Home</a></li>
+						<li><a th:href="@{/Category/ContactAs}">Contact As</a></li>
+						<li><a th:href="@{/Category/allCategory}">Shopping</a></li>
+						<li><a th:href="@{/Category/Checkout}">Check Out</a></li>
+						<li><a th:href="@{/Category/logout}">Logout</a></li>
+						
+					</ul>
+				</div>
+			</nav>
+			</div>
+</div>
+</div>
+</body>
+</html>

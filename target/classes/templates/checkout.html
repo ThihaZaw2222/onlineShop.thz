@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="header::client_header"></div>
+	<div class="col-7">
+		<div class="container">
+			<div class="card">
+				<div class="card-header bg-info text-center text-white"></div>
+				<div class="card-body">
+					<table class="table table-hover">
+						<tr class="bg-dark text-white">
+							<th>ID</th>
+							<th>brandname</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Amount</th>
+
+
+						</tr>
+
+						<tr th:each="ob:${list}">
+							<td th:text=${ob.ItemId}></td>
+							<td th:text=${ob.brandname}></td>
+							<td th:text=${ob.qty}></td>
+							<td th:text=${ob.price}></td>
+							<td th:text=${ob.amount}></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-5">
+		<div class="container">
+
+			<div class="card">
+				<div class="card-header bg-info text-center text-white">
+					<h3>Please enter your shopping information</h3>
+				</div>
+				<div class="clo-5">
+					<form th:action="@{/Category/save}" method="POST" id="Form"
+						class="col-5" th:object="${order}">
+						<div class="row">
+							<div class="col-2">
+								<label for="ContactName"><b>Name:</b></label>
+							</div>
+							<div class="col-6">
+								<input type="text" name="ContactName" id="ContactName"
+									class="form-control" />
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-2">
+								<label for="Address"><b>Address:</b></label>
+							</div>
+							<div class="col-6">
+								<input type="text" name="Address" id="Address"
+									class="form-control" />
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-2">
+								<label for="Phone"><b>Phone</b></label>
+							</div>
+							<div class="col-6">
+								<input type="text" name="Phone" id="Phone" class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-2">
+								<label for="Email"><b>Email Address:</b></label>
+							</div>
+							<div class="col-6">
+								<input type="email" name="Email" id="Email"
+									class="form-control" />
+							</div>
+							<div class="dropdown">
+								<div class="card-header bg-info text-center text-white">
+									<h3>Please enter your billing information</h3>
+								</div>
+								CreditCart:<select id="Card">
+									<option value="Visa">Visa</option>
+									<option value="MasterCard">MasterCard</option>
+									<option value="american">AmericanExpress</option>
+								</select>
+							</div>
+							<div>
+								Credit Card Number: <input type="text" id="number" />
+							</div>
+							<button type="submit">Complete Order</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
